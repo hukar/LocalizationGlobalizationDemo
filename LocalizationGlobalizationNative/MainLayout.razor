@@ -1,5 +1,10 @@
-﻿@inherits LayoutComponentBase
+﻿@using Microsoft.Extensions.Localization
+@using LocalizationGlobalizationNative.Resources
+@inherits LayoutComponentBase
+@inject IStringLocalizer<Data> Localizer
 
 <main>
+    <h3>@Localizer["LayoutDate"] @DateTime.Now.ToLongDateString()</h3>
+    <hr/>
     @Body
 </main>

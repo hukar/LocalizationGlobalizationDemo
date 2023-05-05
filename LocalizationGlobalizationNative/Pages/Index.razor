@@ -1,3 +1,44 @@
 ﻿@page "/"
+@using System.Globalization
+@using Blazored.LocalStorage
+@using LocalizationGlobalizationNative.Resources
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<Data> Localizer
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager NavigationManager
 
-<h1>Hello, world!</h1>
+<h1>@Localizer["Title"]</h1>
+
+<p>Date: @DateTime.Now.ToLongDateString()</p>
+<p>
+       Culture: @CultureInfo.CurrentCulture<br/>
+       Culture UI: @CultureInfo.CurrentUICulture
+</p>
+
+<p>
+    <select @onchange="OnSelectLang">
+        <option disabled>@Localizer["SelectLang"]</option>
+        @foreach (var codeLang in _supportedLanguages)
+        {
+            <option value="@codeLang" selected="@(CultureInfo.CurrentCulture.Name == codeLang)">@codeLang</option>
+        }
+    </select>
+</p>
+
+<blockquote>
+    @Localizer["Quote"]
+</blockquote>
+
+<p>
+    @Localizer["Thanks"]
+</p>
+
+@code {
+    string[] _supportedLanguages = new[] { "fr", "it", "en" };
+
+    async Task OnSelectLang(ChangeEventArgs evt)
+    {
+        await LocalStorage.SetItemAsStringAsync("codeLang", (string)evt.Value!);
+        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad:true);
+    }
+}
