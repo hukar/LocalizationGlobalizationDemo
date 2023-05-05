@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Text.Json.Serialization;
 using Blazored.LocalStorage;
+using Blazored.LocalStorage.StorageOptions;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using LocalizationGlobalizationNative;
@@ -12,7 +13,9 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddLocalization();
-builder.Services.AddBlazoredLocalStorage(config => config.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddBlazoredLocalStorage(
+    config => config.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles
+    );
 
 var app = builder.Build();
 var localStorage = app.Services.GetRequiredService<ILocalStorageService>();
