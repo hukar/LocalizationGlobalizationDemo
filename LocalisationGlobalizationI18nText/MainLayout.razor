@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+@using LocalisationGlobalizationI18nText.I18nText
+@using System.Globalization
+@inject Toolbelt.Blazor.I18nText.I18nText I18nText
+
+<main>
+    <h3>I18nText: @_data.LayoutDate @DateTime.Now.ToLongDateString()</h3>
+    <h4>Current Culture: @CultureInfo.CurrentCulture</h4>
+    <hr/>
+    @Body
+</main>
+
+@code {
+
+    Data _data = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _data = await I18nText.GetTextTableAsync<Data>(this);
+    }
+
+}

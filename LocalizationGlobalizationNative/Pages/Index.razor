@@ -34,7 +34,7 @@
 </p>
 
 @code {
-    string[] _supportedLanguages = new[] { "fr", "it", "en" };
+    readonly string[] _supportedLanguages = new[] { "fr", "it", "en" };
 
     async Task OnSelectLang(ChangeEventArgs evt)
     {

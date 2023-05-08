@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationGlobalizationNative", "LocalizationGlobalizationNative\LocalizationGlobalizationNative.csproj", "{91B1D381-D8AC-41AE-8256-D40E6E3A597B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationLocalisation", "ValidationLocalisation\ValidationLocalisation.csproj", "{56A40CAD-AF63-43EF-87F1-03D80A871F36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalisationGlobalizationI18nText", "LocalisationGlobalizationI18nText\LocalisationGlobalizationI18nText.csproj", "{56A40CAD-AF63-43EF-87F1-03D80A871F36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

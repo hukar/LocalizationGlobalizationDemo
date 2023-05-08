@@ -1,0 +1,51 @@
+﻿@page "/"
+@using Toolbelt.Blazor.I18nText
+@using LocalisationGlobalizationI18nText.I18nText
+@using System.Globalization
+@inject I18nText I18nText
+
+<h1>@_data.Title</h1>
+
+<p>Date: @DateTime.Now.ToLongDateString()</p>
+<p>
+       Culture: @CultureInfo.CurrentCulture<br/>
+</p>
+
+<p>
+    <select @onchange="OnSelectLang">
+        <option disabled>@_data.SelectLang</option>
+        @foreach (var codeLang in _supportedLanguages)
+        {
+            <option value="@codeLang" selected="@(CultureInfo.CurrentCulture.Name == codeLang)">@codeLang</option>
+        }
+    </select>
+</p>
+
+<blockquote>
+    @_data.Quote
+</blockquote>
+
+<p>
+    @_data.Thanks
+</p>
+
+@code {
+
+    Data _data = new();
+
+    readonly string[] _supportedLanguages = new[] { "fr", "it", "en" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        _data = await I18nText.GetTextTableAsync<Data>(this);
+    }
+
+    async Task OnSelectLang(ChangeEventArgs evt)
+    {
+        var langSelected = (string)evt.Value!;
+        // Obligé avant SetCurrentLanguageAsync
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(langSelected);
+
+        await I18nText.SetCurrentLanguageAsync(langSelected);
+    }
+}
