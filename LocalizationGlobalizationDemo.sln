@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationGlobalizationNa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalisationGlobalizationI18nText", "LocalisationGlobalizationI18nText\LocalisationGlobalizationI18nText.csproj", "{56A40CAD-AF63-43EF-87F1-03D80A871F36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNlGlobalization", "TestNlGlobalization\TestNlGlobalization.csproj", "{B2BCE074-8109-4B24-B507-25E5ADA74B6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{56A40CAD-AF63-43EF-87F1-03D80A871F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56A40CAD-AF63-43EF-87F1-03D80A871F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A40CAD-AF63-43EF-87F1-03D80A871F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2BCE074-8109-4B24-B507-25E5ADA74B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2BCE074-8109-4B24-B507-25E5ADA74B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2BCE074-8109-4B24-B507-25E5ADA74B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2BCE074-8109-4B24-B507-25E5ADA74B6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

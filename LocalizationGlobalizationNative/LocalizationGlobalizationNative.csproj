@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resources\Data.resx">
+      <EmbeddedResource Update="Resources\Data.back">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Data.Designer.cs</LastGenOutput>
       </EmbeddedResource>

@@ -26,7 +26,7 @@ var codeLang = await localStorage.GetItemAsStringAsync("codeLang");
 
 if (codeLang is null)
 {
-    codeLang = "fr";
+    codeLang = "fr"; // User.DefaultLang
     await localStorage.SetItemAsync("codeLang", codeLang);
 }
 
