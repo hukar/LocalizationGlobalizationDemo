@@ -6,10 +6,13 @@
 
 <h1>@_data.Title</h1>
 
-<LangSelector />
+<LangSelector/>
 
 <blockquote>
-    @_data.Quote
+    @if (_data.Quote is not null)
+    {
+        <span>@string.Format(_data.Quote, DateTime.Now.ToLongDateString())</span>
+    }
 </blockquote>
 
 <p>
@@ -29,4 +32,5 @@
         _data = await I18nText.GetTextTableAsync<Data>(this);
         _pageUser = await I18nText.GetTextTableAsync<PageUser>(this);
     }
+
 }

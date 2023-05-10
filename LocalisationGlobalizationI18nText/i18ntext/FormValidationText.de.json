@@ -1,3 +1,4 @@
 {
-  "Title": "Formular mit Validierung"
+  "Title": "Formular mit Validierung",
+  "IsTypeExistsMessage": "der Typ muss Bronze, Silver oder Gold sein"
 }

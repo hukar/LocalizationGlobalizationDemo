@@ -37,7 +37,7 @@
         CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(langSelected);
         // For FluentValidation auto-translation
         CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(langSelected);
-
+        // Load translation
         await I18nText.SetCurrentLanguageAsync(langSelected);
     }
 }

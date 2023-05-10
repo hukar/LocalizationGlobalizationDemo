@@ -1,6 +1,6 @@
 {
   "LayoutDate": "Date du composant layout",
-  "Quote": "Pierre qui roule n'amasse pas mousse",
+  "Quote": "Pierre qui roule n'amasse pas mousse date: {0}",
   "SelectLang": "Veuillez sélectionner une langue",
   "Thanks": "Mesdames et messieurs un tout grand merci !",
   "Title": "Bonjour Globalisation Localisation",

@@ -33,4 +33,7 @@
     <data name="LayoutDate" xml:space="preserve">
         <value>Date du composant layout</value>
     </data>
+    <data name="My Message {0} Date {1}" xml:space="preserve">
+        <value>Mon message est {0} à la date {1}</value>
+    </data>
 </root>

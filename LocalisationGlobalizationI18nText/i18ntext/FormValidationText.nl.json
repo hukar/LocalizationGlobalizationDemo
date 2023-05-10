@@ -1,3 +1,4 @@
 {
-  "Title": "Formulier met validatie"
+  "Title": "Formulier met validatie",
+  "IsTypeExistsMessage": "het type moet Bronze, Silver of Gold zijn."
 }

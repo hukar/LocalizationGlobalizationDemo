@@ -33,6 +33,10 @@
     @Localizer["Thanks"]
 </p>
 
+<p>
+    @Localizer["My Message {0} Date {1}", @Localizer["Quote"], DateTime.Now.ToLongDateString()]
+</p>
+
 @code {
     readonly string[] _supportedLanguages = new[] { "fr", "it", "en" };
 
