@@ -1,0 +1,6 @@
+@inject NavigationManager NavigationManager
+
+<p>
+    <Button @onclick="@(() => NavigationManager.NavigateTo("index"))">Home</Button>&nbsp;|&nbsp;
+    <Button @onclick="@(() => NavigationManager.NavigateTo("form"))">Form</Button>
+</p>

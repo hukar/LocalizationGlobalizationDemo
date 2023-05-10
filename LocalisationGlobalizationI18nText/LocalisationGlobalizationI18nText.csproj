@@ -8,15 +8,31 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Blazored.FluentValidation" Version="2.1.0" />
+        <PackageReference Include="FluentValidation" Version="11.5.2" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.5" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.5" PrivateAssets="all" />
         <PackageReference Include="Toolbelt.Blazor.I18nText" Version="12.0.2" />
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="i18ntext\Data.de.json" />
+      <Content Include="i18ntext\Data.nl.json" />
+      <Content Include="i18ntext\Data\Data.nl.json" />
+      <Content Include="i18ntext\FormValidationText.en.json" />
+      <Content Include="i18ntext\FormValidationText.fr.json" />
+      <Content Include="i18ntext\FormValidationText.it.json" />
       <Content Include="i18ntext\PageUser.en.json" />
       <Content Include="i18ntext\PageUser.fr.json" />
       <Content Include="i18ntext\PageUser.it.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="i18ntext\Data\Data.fr.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="i18ntext\Data.fr.json" />
     </ItemGroup>
 
     <PropertyGroup>

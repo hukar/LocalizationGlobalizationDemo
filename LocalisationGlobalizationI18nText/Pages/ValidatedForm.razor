@@ -1,0 +1,70 @@
+@page "/form"
+@using Toolbelt.Blazor.I18nText
+@using LocalisationGlobalizationI18nText.I18nText
+@using LocalisationGlobalizationI18nText.Model
+@using System.Text.Json
+@using Blazored.FluentValidation
+
+@inject I18nText I18nText
+
+<LangSelector/>
+
+<h3>@_formValidationText.Title</h3>
+
+<EditForm
+    Model="@Employee"
+    OnValidSubmit="HandleValidSubmit"
+    OnInvalidSubmit="HandleInvalidSubmit">
+
+    <FluentValidationValidator/>
+    <ValidationSummary/>
+
+    <p>
+        Name: <InputText @bind-Value="Employee.Name"/><br/>
+        <ValidationMessage For="() => Employee.Name" />
+    </p>
+    <p>
+        Age: <InputNumber @bind-Value="Employee.Age"/><br/>
+        <ValidationMessage For="() => Employee.Age" />
+    </p>
+    <p>
+        Have Children: <InputCheckbox @bind-Value="Employee.HaveChildren"/><br/>
+        <ValidationMessage For="() => Employee.HaveChildren" />
+    </p>
+    <p>
+        Number Of Children: <InputNumber @bind-Value="Employee.NumberOfChildren"/><br/>
+        <ValidationMessage For="() => Employee.NumberOfChildren" />
+    </p>
+    <p>
+        Employee Type: <InputText @bind-Value="Employee.EmployeeType"/><br/>
+        <ValidationMessage For="() => Employee.EmployeeType" />
+    </p>
+
+    <button type="submit">Submit Form</button>
+
+</EditForm>
+
+@code {
+    public Employee Employee { get; set; } = new();
+
+    FormValidationText _formValidationText = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _formValidationText = await I18nText.GetTextTableAsync<FormValidationText>(this);
+    }
+
+    void HandleValidSubmit()
+    {
+        var options = new JsonSerializerOptions() { WriteIndented = true };
+        var employeeJson = JsonSerializer.Serialize(Employee, options);
+
+        Console.WriteLine(employeeJson);
+    }
+
+    void HandleInvalidSubmit()
+    {
+        Console.WriteLine("Invalid Form Is Submitted but intercepted");
+    }
+
+}

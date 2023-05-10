@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/index"
 @using Toolbelt.Blazor.I18nText
 @using LocalisationGlobalizationI18nText.I18nText
 @using System.Globalization
@@ -6,20 +6,7 @@
 
 <h1>@_data.Title</h1>
 
-<p>Date: @DateTime.Now.ToLongDateString()</p>
-<p>
-       Culture: @CultureInfo.CurrentCulture<br/>
-</p>
-
-<p>
-    <select @onchange="OnSelectLang">
-        <option disabled>@_data.SelectLang</option>
-        @foreach (var codeLang in _supportedLanguages)
-        {
-            <option value="@codeLang" selected="@(CultureInfo.CurrentCulture.Name == codeLang)">@codeLang</option>
-        }
-    </select>
-</p>
+<LangSelector />
 
 <blockquote>
     @_data.Quote
@@ -29,25 +16,17 @@
     @_data.Thanks
 </p>
 
+<p>Page User: @_pageUser.Name</p>
+
+
 @code {
 
     Data _data = new();
-
-    readonly string[] _supportedLanguages = new[] { "fr", "it", "en" };
+    PageUser _pageUser = new();
 
     protected override async Task OnInitializedAsync()
     {
         _data = await I18nText.GetTextTableAsync<Data>(this);
+        _pageUser = await I18nText.GetTextTableAsync<PageUser>(this);
     }
-
-    async Task OnSelectLang(ChangeEventArgs evt)
-    {
-        var langSelected = (string)evt.Value!;
-        // Obligé avant SetCurrentLanguageAsync
-        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(langSelected);
-
-        await I18nText.SetCurrentLanguageAsync(langSelected);
-    }
-    
-
 }
