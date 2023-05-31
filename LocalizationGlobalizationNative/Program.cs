@@ -5,6 +5,7 @@ using Blazored.LocalStorage.StorageOptions;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using LocalizationGlobalizationNative;
+using LocalizationGlobalizationNative.Extensions;
 using Microsoft.Extensions.Localization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -18,6 +19,8 @@ builder.Services.AddBlazoredLocalStorage(
     );
 
 var app = builder.Build();
+
+// Setting Locale Storage Localization
 var localStorage = app.Services.GetRequiredService<ILocalStorageService>();
 
 CultureInfo currentCulture;
@@ -34,5 +37,8 @@ currentCulture = new CultureInfo(codeLang);
 
 CultureInfo.DefaultThreadCurrentCulture = currentCulture;
 CultureInfo.DefaultThreadCurrentUICulture = currentCulture;
+// End Setting
+
+// await app.SetLocaleStorageLocalization();
 
 await app.RunAsync();
